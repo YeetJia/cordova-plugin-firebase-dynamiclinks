@@ -171,10 +171,20 @@
     NSString* absoluteUrl = dynamicLink.url.absoluteString;
     NSString* minimumAppVersion = dynamicLink.minimumAppVersion;
     BOOL weakConfidence = (dynamicLink.matchType == FIRDLMatchTypeWeak);
-
+    NSString* weakMatchType = @"";
+    if(dynamicLink.matchType == FIRDLMatchTypeNone) {
+        weakMatchType =  @"FIRDLMatchTypeNone";
+    } else if(dynamicLink.matchType == FIRDLMatchTypeWeak) {
+        weakMatchType =  @"FIRDLMatchTypeWeak";
+    } else if (dynamicLink.matchType == FIRDLMatchTypeDefault) {
+        weakMatchType = @"FIRDLMatchTypeDefault";
+    } else if (dynamicLink.matchType == FIRDLMatchTypeUnique) {
+        weakMatchType = @"FIRDLMatchTypeUnique";
+    }
+    NSLog(@"Firebase DynamicLinks plugin weakConfidence %@", weakMatchType);
     [data setObject:(absoluteUrl ? absoluteUrl : @"") forKey:@"deepLink"];
     [data setObject:(minimumAppVersion ? minimumAppVersion : @"") forKey:@"minimumAppVersion"];
-    [data setObject:(weakConfidence ? @"Weak" : @"Strong") forKey:@"matchType"];
+    [data setObject:(weakMatchType) forKey:@"matchType"];
 
     // Hathway code change made to avoid a "phantom" empty deeplink from clobbering a valid deeplink on first launch after install.
     // The incoming phantom deeplink seems to be associated with a JS script being run to detect the device locale, but
