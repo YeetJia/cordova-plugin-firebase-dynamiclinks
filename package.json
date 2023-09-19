@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-firebase-dynamiclinks",
+  "name": "cordova-plugin-firebase-dynamiclinks-yeetjia",
   "version": "7.0.2",
   "description": "Cordova plugin for Firebase Dynamic Links",
   "types": "./types/index.d.ts",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks.git"
+    "url": "git+https://github.com/YeetJia/cordova-plugin-firebase-dynamiclinks.git"
   },
   "keywords": [
     "Firebase Invites",
